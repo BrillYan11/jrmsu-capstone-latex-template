@@ -1,0 +1,201 @@
+% !TEX program = xelatex
+% ---------------------------------------------------------------
+%  IS 412 Capstone 1 Manuscript -- JRMSU College of Computing Studies
+%  Compatible with Overleaf (pdfLaTeX, XeLaTeX, LuaLaTeX) and local TeX.
+%  Run twice to update Table of Contents and references.
+%  Fonts: Times New Roman (XeLaTeX/LuaLaTeX when installed) or
+%  TeX Gyre Termes / Times (pdfLaTeX & Overleaf).
+% ---------------------------------------------------------------
+\documentclass[12pt,letterpaper]{report}
+
+% ---------- Page layout (matches Word: 1" top/bottom/right, 1.5" left) ----------
+\usepackage[letterpaper,top=1in,bottom=1in,right=1in,left=1.5in,
+            headheight=16pt,headsep=0.3in,footskip=0.4in]{geometry}
+
+% ---------- Font: Times New Roman / Times 12 pt (pdfLaTeX + XeLaTeX/LuaLaTeX) ----------
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{mathptmx}
+\else
+  \usepackage{fontspec}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}
+    {\IfFontExistsTF{TeX Gyre Termes}{\setmainfont{TeX Gyre Termes}}
+    {\setmainfont{Liberation Serif}}}
+\fi
+
+\usepackage{setspace}
+\setstretch{1.1}            % ~ Word "Multiple 1.15"
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\raggedbottom
+
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array,tabularx,float}
+\usepackage{enumitem}
+\usepackage{indentfirst}   % first paragraph after a heading is indented, as in Word
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+
+
+% ===============================================================
+%  >>>  EDIT YOUR DETAILS HERE (they fill in everywhere)  <<<
+% ===============================================================
+\newcommand{\CapstoneTitle}{[TITLE OF THE CAPSTONE IN CAPITAL LETTERS]}
+\newcommand{\CapstoneTitleShort}{[TITLE]}            % used inside sentences
+\newcommand{\SystemName}{[System name]}
+\newcommand{\OfficeName}{[Office name]}
+\newcommand{\PartnerOffice}{[PARTNER OFFICE]}
+\newcommand{\ResearcherOne}{[RESEARCHER 1 FULL NAME]}
+\newcommand{\ResearcherTwo}{[RESEARCHER 2 FULL NAME]}
+\newcommand{\ResearcherThree}{[RESEARCHER 3 FULL NAME]}
+\newcommand{\ResearcherNames}{[researcher names]}    % used inside sentences
+\newcommand{\MonthYear}{[Month Year]}
+\newcommand{\Semester}{[first/second]}
+\newcommand{\SchoolYear}{[20XX-20XX]}
+\newcommand{\DefenseType}{[pre-oral/final]}
+\newcommand{\DefenseDate}{[date]}
+\newcommand{\ProfessorName}{[NAME OF PROFESSOR, degree]}
+\newcommand{\AdviserName}{[NAME OF ADVISER, degree]}
+\newcommand{\PanelOne}{[NAME, degree]}
+\newcommand{\PanelTwo}{[NAME, degree]}
+\newcommand{\PanelChair}{[NAME, degree]}
+\newcommand{\DeanName}{[NAME OF ASSOCIATE DEAN, degree]}
+
+% Set to true to build the List of Figures / Tables automatically from captions
+\newif\ifautolists \autolistsfalse
+% ===============================================================
+
+% ---------- Headings (all 12 pt bold, chapters centred) ----------
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{3}
+\titleformat{\chapter}[display]{\centering\bfseries\normalsize}
+  {\chaptertitlename\ \thechapter}{0pt}{\bfseries\normalsize}
+\titlespacing*{\chapter}{0pt}{0pt}{12pt}
+\titleformat{\section}{\bfseries\normalsize}{}{0pt}{}
+\titlespacing*{\section}{0pt}{6pt}{0pt}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{6pt}{0pt}
+
+% Figures and tables are numbered continuously through the whole manuscript
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\captionsetup{font=normalsize,labelfont=bf,textfont=bf,labelsep=period}
+\captionsetup[table]{skip=4pt,position=top}
+\captionsetup[figure]{skip=4pt}
+
+% ---------- Page numbers: roman (bottom centre) then arabic (top right) ----------
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\pagestyle{plain}
+
+% ---------- Table of contents look ----------
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries\normalsize}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{-16pt}
+\setlength{\cftaftertoctitleskip}{12pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{18pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{18pt}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftchapleader}{\hfill}
+\renewcommand{\cftchappresnum}{Chapter~}
+\setlength{\cftchapnumwidth}{1.05in}
+\setlength{\cftbeforechapskip}{6pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\setlength{\cftsecindent}{0.25in}
+\setlength{\cftsubsecindent}{0.5in}
+\renewcommand{\cftsecleader}{\hfill}
+\renewcommand{\cftsubsecleader}{\hfill}
+
+% ---------- Helper macros ----------
+% Unnumbered, centred, bold heading that also appears in the Table of Contents
+\newcommand{\unnumberedhead}[1]{\phantomsection
+  \addcontentsline{toc}{chapter}{#1}%
+  \begin{center}\bfseries #1\end{center}\vspace{6pt}}
+\newcommand{\unnumbered}[1]{\clearpage\unnumberedhead{#1}}
+
+% Dashed placeholder box for a diagram / screenshot / scan  (replace with \includegraphics)
+\newcommand{\imgplaceholder}[1]{\begin{center}\fbox{\parbox[c][1.4in][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\itshape #1}}\end{center}}
+
+% Figure with caption below, e.g. \figbox{[Insert ...]}{Title}
+\newcommand{\figbox}[2]{\begin{figure}[H]\centering
+  \fbox{\parbox[c][1.4in][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\itshape #1}}
+  \caption{#2}\end{figure}}
+
+% Table helpers: plain black grid, bold header text
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcommand{\hd}[1]{\textbf{#1}}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{5pt}
+
+% Signature block on the right half of the page
+\newcommand{\sigblock}[2]{\par\vspace{14pt}\noindent\hspace*{3in}\begin{minipage}[t]{\dimexpr\textwidth-3in\relax}
+  \centering\underline{#1}\\ #2\end{minipage}\par}
+
+% University letterhead used on the Certification and Approval pages
+\newcommand{\letterhead}[2]{%
+  \noindent\begin{minipage}{\textwidth}\centering
+  \begin{minipage}[c]{1.05in}\includegraphics[height=0.875in]{images/#1}\end{minipage}\hfill
+  \begin{minipage}[c]{3.4in}\centering
+    Republic of the Philippines\\
+    {\bfseries JOSE RIZAL MEMORIAL STATE UNIVERSITY}\\
+    The Premier University in Zamboanga del Norte\\
+    Main Campus, Dapitan City\end{minipage}\hfill
+  \begin{minipage}[c]{1.05in}\raggedleft\includegraphics[height=0.875in]{images/#2}\end{minipage}
+  \end{minipage}\par\vspace{18pt}}
+
+\usepackage[hidelinks,pdftitle={Capstone 1 Manuscript}]{hyperref}
+
+% ===============================================================
+\begin{document}
+\pagenumbering{roman}          % the cover is page i (number not shown)
+
+\input{frontmatter/cover}
+\input{frontmatter/certification}
+\input{frontmatter/approval}
+\input{frontmatter/acknowledgement}
+\input{frontmatter/dedication}
+\input{frontmatter/abstract}
+
+\clearpage\phantomsection
+\tableofcontents
+\input{frontmatter/lists}
+
+% ---------- Main body: arabic numbers, top right ----------
+\clearpage
+\pagenumbering{arabic}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[R]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\pagestyle{plain}
+
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+\input{chapters/references}
+
+% ---------- Appendices ----------
+\input{appendices/appendices}
+\appendix
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Appendix~}}
+\input{appendices/appendixA}
+\input{appendices/appendixB}
+\input{appendices/appendixC}
+\input{appendices/appendixD}
+\input{appendices/appendixE}
+\input{appendices/appendixF}
+\input{appendices/appendixG}
+\input{appendices/appendixH}
+\input{appendices/appendixI}
+
+\end{document}

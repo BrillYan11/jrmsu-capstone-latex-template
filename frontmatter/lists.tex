@@ -1,0 +1,51 @@
+% ---------- LIST OF FIGURES ----------
+\clearpage
+\ifautolists
+  \phantomsection\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+  \renewcommand{\listfigurename}{LIST OF FIGURES}
+  \renewcommand{\cftloftitlefont}{\hfill\bfseries\normalsize}\renewcommand{\cftafterloftitle}{\hfill}
+  \listoffigures
+\else
+  \unnumberedhead{LIST OF FIGURES}
+  \noindent\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.9in}|Y|>{\centering\arraybackslash}p{0.6in}|}
+  \hline
+  \hd{FIGURE} & \hd{Title} & \hd{Page}\\ \hline
+  1 & [International related system] & [n]\\ \hline
+  2 & [National related system] & [n]\\ \hline
+  3 & [Regional related system] & [n]\\ \hline
+  4 & [Development methodology diagram, e.g. Rapid Application Development] & [n]\\ \hline
+  5 & Context Level Data Flow Diagram & [n]\\ \hline
+  6 & Data Flow Diagram of Admin User in \SystemName & [n]\\ \hline
+  7 & Data Flow Diagram of [Staff] User in \SystemName & [n]\\ \hline
+  8 & Use Case Diagram of \SystemName & [n]\\ \hline
+  9 & Entity Relationship Diagram of \SystemName & [n]\\ \hline
+  10 & LOGIN & [n]\\ \hline
+  11 & [DASHBOARD] & [n]\\ \hline
+  12 & [Existing form or report in the office] & [n]\\ \hline
+  \end{tabularx}
+\fi
+
+% ---------- LIST OF TABLES ----------
+\clearpage
+\ifautolists
+  \phantomsection\addcontentsline{toc}{chapter}{LIST OF TABLES}
+  \renewcommand{\listtablename}{LIST OF TABLES}
+  \renewcommand{\cftlottitlefont}{\hfill\bfseries\normalsize}\renewcommand{\cftafterlottitle}{\hfill}
+  \listoftables
+\else
+  \unnumberedhead{LIST OF TABLES}
+  \noindent\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8in}|Y|>{\centering\arraybackslash}p{0.6in}|}
+  \hline
+  \hd{TABLE} & \hd{Title} & \hd{Page}\\ \hline
+  1 & Functional Requirements & [n]\\ \hline
+  2 & Input Requirements & [n]\\ \hline
+  3 & Output Requirements & [n]\\ \hline
+  4 & Software Requirements/Hardware Requirements & [n]\\ \hline
+  5 & Development Requirements & [n]\\ \hline
+  6 & Deployment Requirements & [n]\\ \hline
+  7 & [User] (Data Dictionary) & [n]\\ \hline
+  {[n]} & [Other data dictionary tables] & [n]\\ \hline
+  {[n]} & Module 1 - Login (Test Case Result) & [n]\\ \hline
+  {[n]} & [Other module test case tables] & [n]\\ \hline
+  \end{tabularx}
+\fi

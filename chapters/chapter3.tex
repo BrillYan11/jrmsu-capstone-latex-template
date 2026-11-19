@@ -1,0 +1,135 @@
+\chapter{RESEARCH METHODOLOGY}
+This chapter explains how \SystemName\ will be analyzed, designed and developed. It presents the methodology, the requirements, the diagrams and data dictionary, and the plans for implementation, testing, deployment and maintenance.
+
+\section{System Development Methodology}
+The study will use the [methodology] for this capstone. It is suited to projects that [reason], and it allows [benefit such as continuous user feedback].
+
+\figbox{[Insert methodology diagram]}{[Methodology name, for example Rapid Application Development]}
+
+[Phase 1 name]. [What the researchers will do in this phase.]
+
+[Phase 2 name]. [What the researchers will do in this phase.]
+
+[Phase 3 name]. [What the researchers will do in this phase.]
+
+\section{Analysis}
+
+\begin{table}[H]\caption{Functional Requirements}\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.75in}|Y|}\hline
+\hd{FUNCTIONAL REQUIREMENTS} & \hd{DESCRIPTION}\\ \hline
+[Admin and Staff Account] & The Admin shall be able to create, activate and deactivate user accounts. Users shall be able to update their own password and profile.\\ \hline
+[Module 2, for example Personnel] & The Staff user shall be able to add, edit and view [records].\\ \hline
+[Module 3] & The Staff user shall be able to generate [report] based on the entered information.\\ \hline
+\end{tabularx}\end{table}
+
+\begin{table}[H]\caption{Input Requirements}\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.75in}|Y|}\hline
+\hd{INPUT} & \hd{DESCRIPTION}\\ \hline
+[Account information] & [Name, username, password and role of the user]\\ \hline
+[Record 2] & [Fields the user enters]\\ \hline
+\end{tabularx}\end{table}
+
+\begin{table}[H]\caption{Output Requirements}\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.75in}|Y|}\hline
+\hd{OUTPUT} & \hd{DESCRIPTION}\\ \hline
+[Report 1] & [What the report shows and who uses it]\\ \hline
+[Activity log] & [List of user activities in the system]\\ \hline
+\end{tabularx}\end{table}
+
+\begin{table}[H]\caption{Software Requirements/Hardware Requirements}\centering
+\begin{tabularx}{\textwidth}{|Y|>{\raggedright\arraybackslash}p{1.6in}|>{\raggedright\arraybackslash}p{1.35in}|}\hline
+\hd{MINIMUM REQUIREMENTS} & \hd{RECOMMENDED REQUIREMENTS} & \hd{DESCRIPTION}\\ \hline
+[Computer or laptop: processor, operating system, RAM, storage] & [Higher specification] & The system will run with the following requirements\\ \hline
+\end{tabularx}\end{table}
+
+\begin{table}[H]\caption{Development Requirements}\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.75in}|Y|}\hline
+\hd{SOFTWARE REQUIREMENTS} & \hd{DESCRIPTION}\\ \hline
+Operating System & [Windows version]\\ \hline
+Integrated Development Environment & [IDE, database server, programming language]\\ \hline
+\end{tabularx}\end{table}
+
+\begin{table}[H]\caption{Deployment Requirements}\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.75in}|Y|}\hline
+\hd{SOFTWARE REQUIREMENTS} & \hd{DESCRIPTION}\\ \hline
+Operating System & [Windows version]\\ \hline
+Database & [for example XAMPP]\\ \hline
+\end{tabularx}\end{table}
+
+\section{Design}
+
+\subsection{Context Diagram}
+A context diagram shows the overview of how \SystemName\ works.
+
+\figbox{[Insert context diagram]}{Context Level Data Flow Diagram}
+
+The diagram shows that \SystemName\ has [number] system users, the [User] and the [Admin], each with its own role.
+
+\subsection{Data Flow Diagram (DFD)}
+\figbox{[Insert Gane-Sarson DFD for the Admin user]}{Data Flow Diagram of [Admin] User in \SystemName}
+
+1.0 [Process name]. The [admin] enters [data]. The process checks [data] against (D1) [Data store name] and [result].
+
+2.0 [Process name]. [Who does what, which data store is read or updated, what comes out.]
+
+\figbox{[Insert Gane-Sarson DFD for the Staff user]}{Data Flow Diagram of [Staff] User in \SystemName}
+
+1.0 [Process name]. [Who does what, which data store is read or updated, what comes out.]
+
+\subsection{Use Case Diagram}
+\figbox{[Insert use case diagram]}{Use Case Diagram of \SystemName}
+
+[Actor 1] can [use cases]. [Actor 2] can [use cases].
+
+\subsection{Entity Relationship Diagram}
+\figbox{[Insert ERD with primary keys and cardinality]}{Entity Relationship Diagram of \SystemName}
+
+[Explain the entities and how they relate.]
+
+\subsection{Data Dictionary}
+\begin{table}[H]\caption{[User]}\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.5in}|>{\raggedright\arraybackslash}p{1.3in}|Y|}\hline
+\hd{FIELD NAME} & \hd{FIELD TYPE} & \hd{DESCRIPTION}\\ \hline
+User\_ID & Int (11) & ID used for identifying the user account\\ \hline
+First\_Name & Varchar (50) & User's first name\\ \hline
+[Field] & [Type (size)] & [What it stores]\\ \hline
+\end{tabularx}\end{table}
+
+[Add one table for each database table, continuing the table numbering.]
+
+\subsection{Forms}
+\figbox{[Insert screenshot of the login form]}{LOGIN}
+
+This form is where [users] enter their credentials to use the system.
+
+\figbox{[Insert screenshot of the dashboard]}{[DASHBOARD]}
+
+This form can only be accessed by [role]. Here the user can [actions].
+
+\subsection{Existing Reports in the Office}
+\figbox{[Insert photo or scan of the existing form or report]}{[Name of existing form or report]}
+
+\section{Implementation}
+The system will be coded using [IDE and language] with [database]. Development will begin with [first forms], then [dashboards], and finally [report generation].
+
+\section{Testing Plan}
+A Test Case Assessment will be used to check that the system runs correctly. Each module, such as [login, records, reports], will first be tested separately. [How report accuracy will be validated.] After errors are fixed, the system will be tested with [office staff].
+
+\section{Deployment Plan}
+The system will be installed by [steps, for example installing XAMPP]. Hands-on training will cover [navigation, data entry, report generation, basic troubleshooting], with technical support available during training.
+
+\section{Maintenance Plan}
+After deployment, the system will have [monthly] maintenance checks to [gather feedback, fix errors and add suggested improvements].
+
+\section{Gantt Chart}
+\begingroup\footnotesize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.4}
+\noindent\begin{tabular}{|p{1.3in}|*{10}{>{\centering\arraybackslash}p{0.4in}|}}\hline
+\hd{TASK} & \hd{[Aug]} & \hd{[Sep]} & \hd{[Oct]} & \hd{[Nov]} & \hd{[Dec]} & \hd{[Jan]} & \hd{[Feb]} & \hd{[Mar]} & \hd{[Apr]} & \hd{[May]}\\ \hline
+Planning Stage & & & & & & & & & &\\ \hline
+Analysis Stage & & & & & & & & & &\\ \hline
+Design Stage & & & & & & & & & &\\ \hline
+Development Stage & & & & & & & & & &\\ \hline
+Testing Stage & & & & & & & & & &\\ \hline
+Integration and Implementation Stage & & & & & & & & & &\\ \hline
+Maintenance Stage & & & & & & & & & &\\ \hline
+\end{tabular}\endgroup
