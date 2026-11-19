@@ -1,23 +1,23 @@
 # IS 412 Capstone 1 Manuscript LaTeX Template
 
-JRMSU College of Computing Studies — IS 412 Capstone 1 Manuscript Template (Overleaf & local TeX compatible).
+JRMSU College of Computing Studies - IS 412 Capstone 1 Manuscript Template (Overleaf & local TeX compatible).
 
 ## Files
-- `main.tex` — Main manuscript file (compile this file)
-- `frontmatter/` — Front matter sections:
-  - `cover.tex` — Cover page
-  - `certification.tex` — Certification page
-  - `approval.tex` — Approval sheet
-  - `acknowledgement.tex` — Acknowledgement section
-  - `dedication.tex` — Dedication section
-  - `abstract.tex` — Abstract section
-  - `lists.tex` — List of Figures and List of Tables
-- `chapters/` — Main manuscript chapters:
-  - `chapter1.tex` to `chapter5.tex` — Chapters 1–5
-  - `references.tex` — References section
-- `appendices/` — Appendix sections (`appendices.tex`, `appendixA.tex` to `appendixI.tex`)
-- `images/` — Put all images/logos/diagrams in this directory (`image1.png`, `image2.jpeg`, `image3.png`, `image4.jpeg`)
-- `build.bat` / `build.ps1` — Optional Windows build scripts for local XeLaTeX compilation
+- `main.tex` - Main manuscript file (compile this file)
+- `frontmatter/` - Front matter sections:
+  - `cover.tex` - Cover page
+  - `certification.tex` - Certification page
+  - `approval.tex` - Approval sheet
+  - `acknowledgement.tex` - Acknowledgement section
+  - `dedication.tex` - Dedication section
+  - `abstract.tex` - Abstract section
+  - `lists.tex` - List of Figures and List of Tables
+- `chapters/` - Main manuscript chapters:
+  - `chapter1.tex` to `chapter5.tex` - Chapters 1-5
+  - `references.tex` - References section
+- `appendices/` - Appendix sections (`appendices.tex`, `appendixA.tex` to `appendixI.tex`)
+- `images/` - Put all images/logos/diagrams in this directory (`image1.png`, `image2.jpeg`, `image3.png`, `image4.jpeg`)
+- `build.bat` / `build.ps1` - Optional Windows build scripts for local XeLaTeX compilation
 
 ## Overleaf Usage (Recommended for Students)
 1. Download or zip this repository (`main.tex`, `frontmatter/`, `chapters/`, `appendices/`, `images/`).
@@ -48,5 +48,5 @@ JRMSU College of Computing Studies — IS 412 Capstone 1 Manuscript Template (Ov
 - Layout: Letter paper, 1" top/bottom/right, 1.5" left; Times New Roman 12 pt (XeLaTeX/LuaLaTeX) or Times/mathptmx (pdfLaTeX/Overleaf); roman page numbers (bottom center) before Chapter 1, then arabic (top right).
 
 ## Format & References
-- JRMSU College of Computing Studies — IS 412 Capstone 1 Manuscript (`Capstone_1_Manuscript.docx`)
+- JRMSU College of Computing Studies - IS 412 Capstone 1 Manuscript (`Capstone_1_Manuscript.docx`)
 - ICS Thesis Template by JCE Plaras: https://github.com/jceplaras/icsthesislatextemplate
