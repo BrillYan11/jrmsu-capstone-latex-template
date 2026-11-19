@@ -4,6 +4,7 @@ JRMSU College of Computing Studies - IS 412 Capstone 1 Manuscript Template (Over
 
 ## Files
 - `main.tex` - Main manuscript file (compile this file)
+- `sample_output.pdf` - Compiled sample PDF output of the template
 - `frontmatter/` - Front matter sections:
   - `cover.tex` - Cover page
   - `certification.tex` - Certification page
