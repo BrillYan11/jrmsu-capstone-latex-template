@@ -12,3 +12,7 @@
 *.blg
 *.pdf
 !sample_output.pdf
+
+# Graphify & Obsidian
+graphify-out/
+.obsidian/

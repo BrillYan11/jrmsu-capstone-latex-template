@@ -38,13 +38,30 @@ JRMSU College of Computing Studies - IS 412 Capstone 1 Manuscript Template (Over
 ## Fill It In
 - Edit the title, researcher names, office, adviser, dates, etc. **once** in the `EDIT YOUR DETAILS HERE` block of `main.tex`.
 - Placeholders stay in `[square brackets]` so you can search for `[` to find what is left to write.
-- Replace a placeholder box (`\figbox{[Insert ...]}{Caption}`) with an image:
+- **Sample: Inserting a Photo (Figure)** — put your image inside `images/`, then replace `\figbox{...}{...}` with:
   ```latex
-  \begin{figure}[H]\centering
-    \includegraphics[width=\linewidth]{images/yourfile.png}
-    \caption{Caption}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/yourfile.png}
+    \caption{Sample System Screenshot}
+    \label{fig:sample-screenshot}
   \end{figure}
   ```
+  Reference it in a sentence with `As shown in Figure~\ref{fig:sample-screenshot}, ...`. Adjust `width=0.75\linewidth` (e.g. `0.5\linewidth` to `1.0\linewidth`) to resize.
+- **Sample: Inserting a Table** — caption goes at the top; `Y` is a left-aligned auto-width column, `C` is centered, and `\hd{...}` bolds headers:
+  ```latex
+  \begin{table}[H]
+    \caption{Sample Functional Requirements}
+    \label{tab:sample-requirements}
+    \centering
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.6in}|Y|C|}\hline
+      \hd{MODULE} & \hd{DESCRIPTION} & \hd{STATUS} \\ \hline
+      User Login  & Allows authorized users to sign in securely. & Complete \\ \hline
+      Schedules   & Displays and updates class schedules.        & Ongoing  \\ \hline
+    \end{tabularx}
+  \end{table}
+  ```
+  Reference it in a sentence with `Table~\ref{tab:sample-requirements} summarizes...`.
 - Figure/table numbers are automatic and continuous. Set `\autoliststrue` in `main.tex` to generate the List of Figures and List of Tables automatically from your captions.
 - Layout: Letter paper, 1" top/bottom/right, 1.5" left; Times New Roman 12 pt (XeLaTeX/LuaLaTeX) or Times/mathptmx (pdfLaTeX/Overleaf); roman page numbers (bottom center) before Chapter 1, then arabic (top right).
 

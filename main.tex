@@ -26,10 +26,13 @@
 \fi
 
 \usepackage{setspace}
-\setstretch{1.1}            % ~ Word "Multiple 1.15"
+\setstretch{1.5}            % True 1.5 line spacing (matches Word; \onehalfspacing is ~1.24)
 \setlength{\parindent}{0.5in}
 \setlength{\parskip}{0pt}
 \raggedbottom
+\hyphenpenalty=10000        % Stop end-of-line word hyphenation (matches Word)
+\exhyphenpenalty=10000
+\emergencystretch=3em       % Avoid right-margin overflow without hyphenation
 
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
@@ -86,7 +89,7 @@
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 \captionsetup{font=normalsize,labelfont=bf,textfont=bf,labelsep=period}
-\captionsetup[table]{skip=4pt,position=top}
+\captionsetup[table]{skip=4pt,position=top,justification=raggedright,singlelinecheck=false}
 \captionsetup[figure]{skip=4pt}
 
 % ---------- Page numbers: roman (bottom centre) then arabic (top right) ----------
@@ -99,10 +102,24 @@
 \renewcommand{\cftaftertoctitle}{\hfill}
 \setlength{\cftbeforetoctitleskip}{-16pt}
 \setlength{\cftaftertoctitleskip}{12pt}
-\setlength{\cftbeforeloftitleskip}{0pt}
-\setlength{\cftafterloftitleskip}{18pt}
-\setlength{\cftbeforelottitleskip}{0pt}
-\setlength{\cftafterlottitleskip}{18pt}
+\setlength{\cftbeforeloftitleskip}{-16pt}
+\setlength{\cftafterloftitleskip}{10pt}
+\setlength{\cftbeforelottitleskip}{-16pt}
+\setlength{\cftafterlottitleskip}{10pt}
+\renewcommand{\cftloftitlefont}{\hfill\bfseries\normalsize}
+\renewcommand{\cftafterloftitle}{\hfill\par\vspace{12pt}\noindent\textbf{Figures}\hfill\textbf{Page}}
+\renewcommand{\cftlottitlefont}{\hfill\bfseries\normalsize}
+\renewcommand{\cftafterlottitle}{\hfill\par\vspace{12pt}\noindent\textbf{Tables}\hfill\textbf{Page}}
+\renewcommand{\cftfigpresnum}{Figure~}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftfignumwidth}{1.1in}
+\renewcommand{\cftfigleader}{\hfill}
+\setlength{\cftbeforefigskip}{6pt}
+\renewcommand{\cfttabpresnum}{Table~}
+\setlength{\cfttabindent}{0pt}
+\setlength{\cfttabnumwidth}{1.1in}
+\renewcommand{\cfttableader}{\hfill}
+\setlength{\cftbeforetabskip}{6pt}
 \renewcommand{\cftchapfont}{\bfseries}
 \renewcommand{\cftchappagefont}{\bfseries}
 \renewcommand{\cftchapleader}{\hfill}
@@ -171,11 +188,12 @@
 \tableofcontents
 \input{frontmatter/lists}
 
-% ---------- Main body: arabic numbers, top right ----------
+% ---------- Main body: arabic numbers, top right (hidden on chapter first pages) ----------
 \clearpage
 \pagenumbering{arabic}
-\fancypagestyle{plain}{\fancyhf{}\fancyhead[R]{\thepage}\renewcommand{\headrulewidth}{0pt}}
-\pagestyle{plain}
+\fancyhf{}\fancyhead[R]{\thepage}\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}} % \chapter uses plain
+\pagestyle{fancy}
 
 \input{chapters/chapter1}
 \input{chapters/chapter2}

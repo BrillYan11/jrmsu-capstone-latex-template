@@ -3,26 +3,26 @@
 \ifautolists
   \phantomsection\addcontentsline{toc}{chapter}{LIST OF FIGURES}
   \renewcommand{\listfigurename}{LIST OF FIGURES}
-  \renewcommand{\cftloftitlefont}{\hfill\bfseries\normalsize}\renewcommand{\cftafterloftitle}{\hfill}
-  \listoffigures
+  {\cftsetrmarg{0.9in}\listoffigures}
 \else
   \unnumberedhead{LIST OF FIGURES}
-  \noindent\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.9in}|Y|>{\centering\arraybackslash}p{0.6in}|}
-  \hline
-  \hd{FIGURE} & \hd{Title} & \hd{Page}\\ \hline
-  1 & [International related system] & [n]\\ \hline
-  2 & [National related system] & [n]\\ \hline
-  3 & [Regional related system] & [n]\\ \hline
-  4 & [Development methodology diagram, e.g. Rapid Application Development] & [n]\\ \hline
-  5 & Context Level Data Flow Diagram & [n]\\ \hline
-  6 & Data Flow Diagram of Admin User in \SystemName & [n]\\ \hline
-  7 & Data Flow Diagram of [Staff] User in \SystemName & [n]\\ \hline
-  8 & Use Case Diagram of \SystemName & [n]\\ \hline
-  9 & Entity Relationship Diagram of \SystemName & [n]\\ \hline
-  10 & LOGIN & [n]\\ \hline
-  11 & [DASHBOARD] & [n]\\ \hline
-  12 & [Existing form or report in the office] & [n]\\ \hline
-  \end{tabularx}
+  \vspace{6pt}
+  {\renewcommand{\arraystretch}{1.5}%
+  \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{1.05in}Y@{\hspace{0.45in}}>{\raggedleft\arraybackslash}p{0.55in}@{}}
+  \hd{Figures} & & \hd{Page}\\[6pt]
+  Figure 1 & [International related system] & [n]\\
+  Figure 2 & [National related system] & [n]\\
+  Figure 3 & [Regional related system] & [n]\\
+  Figure 4 & [Development methodology diagram, e.g. Rapid Application Development] & [n]\\
+  Figure 5 & Context Level Data Flow Diagram & [n]\\
+  Figure 6 & Data Flow Diagram of Admin User in \SystemName & [n]\\
+  Figure 7 & Data Flow Diagram of [Staff] User in \SystemName & [n]\\
+  Figure 8 & Use Case Diagram of \SystemName & [n]\\
+  Figure 9 & Entity Relationship Diagram of \SystemName & [n]\\
+  Figure 10 & LOGIN & [n]\\
+  Figure 11 & [DASHBOARD] & [n]\\
+  Figure 12 & [Existing form or report in the office] & [n]\\
+  \end{tabularx}}
 \fi
 
 % ---------- LIST OF TABLES ----------
@@ -30,22 +30,22 @@
 \ifautolists
   \phantomsection\addcontentsline{toc}{chapter}{LIST OF TABLES}
   \renewcommand{\listtablename}{LIST OF TABLES}
-  \renewcommand{\cftlottitlefont}{\hfill\bfseries\normalsize}\renewcommand{\cftafterlottitle}{\hfill}
-  \listoftables
+  {\cftsetrmarg{0.9in}\listoftables}
 \else
   \unnumberedhead{LIST OF TABLES}
-  \noindent\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8in}|Y|>{\centering\arraybackslash}p{0.6in}|}
-  \hline
-  \hd{TABLE} & \hd{Title} & \hd{Page}\\ \hline
-  1 & Functional Requirements & [n]\\ \hline
-  2 & Input Requirements & [n]\\ \hline
-  3 & Output Requirements & [n]\\ \hline
-  4 & Software Requirements/Hardware Requirements & [n]\\ \hline
-  5 & Development Requirements & [n]\\ \hline
-  6 & Deployment Requirements & [n]\\ \hline
-  7 & [User] (Data Dictionary) & [n]\\ \hline
-  {[n]} & [Other data dictionary tables] & [n]\\ \hline
-  {[n]} & Module 1 - Login (Test Case Result) & [n]\\ \hline
-  {[n]} & [Other module test case tables] & [n]\\ \hline
-  \end{tabularx}
+  \vspace{6pt}
+  {\renewcommand{\arraystretch}{1.5}%
+  \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{1.05in}Y@{\hspace{0.45in}}>{\raggedleft\arraybackslash}p{0.55in}@{}}
+  \hd{Tables} & & \hd{Page}\\[6pt]
+  Table 1 & Functional Requirements & [n]\\
+  Table 2 & Input Requirements & [n]\\
+  Table 3 & Output Requirements & [n]\\
+  Table 4 & Software Requirements/Hardware Requirements & [n]\\
+  Table 5 & Development Requirements & [n]\\
+  Table 6 & Deployment Requirements & [n]\\
+  Table 7 & [User] (Data Dictionary) & [n]\\
+  Table {[n]} & [Other data dictionary tables] & [n]\\
+  Table {[n]} & Module 1 - Login (Test Case Result) & [n]\\
+  Table {[n]} & [Other module test case tables] & [n]\\
+  \end{tabularx}}
 \fi
