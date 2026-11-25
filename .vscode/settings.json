@@ -22,6 +22,7 @@
     }
   ],
   "latex-workshop.latex.recipe.default": "xelatex 2x",
+  "latex-workshop.latex.clean.method": "glob",
   "latex-workshop.view.pdf.viewer": "tab"
 }
 

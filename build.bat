@@ -22,6 +22,11 @@ if %ERRORLEVEL% neq 0 (
 )
 
 set "EXTRA_ARGS="
+xelatex --version >nul 2>&1
+if %ERRORLEVEL% neq 0 (
+    echo [WARN] xelatex failed to start ^(mixed MiKTeX DLLs^). Updating MiKTeX packages...
+    miktex packages update
+)
 xelatex --version 2>&1 | findstr /i "MiKTeX" >nul && set "EXTRA_ARGS=-enable-installer"
 
 echo [Pass 1/2] Running XeLaTeX...

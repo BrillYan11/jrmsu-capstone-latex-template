@@ -19,7 +19,13 @@ if (-not (Get-Command xelatex -ErrorAction SilentlyContinue)) {
 }
 
 $extraArgs = @()
-if ((& xelatex --version | Select-Object -First 1) -match "MiKTeX") {
+$verOut = & xelatex --version 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[WARN] xelatex failed to start (mixed MiKTeX DLLs). Updating MiKTeX packages..." -ForegroundColor Yellow
+    & miktex packages update
+    $verOut = & xelatex --version 2>&1
+}
+if (($verOut | Select-Object -First 1) -match "MiKTeX") {
     $extraArgs += "-enable-installer"
 }
 
