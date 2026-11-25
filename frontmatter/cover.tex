@@ -22,9 +22,9 @@ Of the Requirements for the Degree\\[6pt]
 {\bfseries BACHELOR OF SCIENCE IN INFORMATION SYSTEMS}
 
 \vspace{14pt}
-{\bfseries\ResearcherOne}\\
-{\bfseries\ResearcherTwo}\\
-{\bfseries\ResearcherThree}
+{\bfseries\ResearcherOne}%
+\ifdefined\ResearcherTwo\ifx\ResearcherTwo\empty\else\\{\bfseries\ResearcherTwo}\fi\fi%
+\ifdefined\ResearcherThree\ifx\ResearcherThree\empty\else\\{\bfseries\ResearcherThree}\fi\fi
 
 \vspace{14pt}
 \MonthYear

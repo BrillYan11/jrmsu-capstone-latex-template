@@ -35,7 +35,7 @@ if %ERRORLEVEL% neq 0 (
     echo.
     if exist main.log (
         echo [ERROR] Pass 1 failed. Errors from "%CD%\main.log":
-        findstr /r /c:"^!" /c:"Fatal" main.log
+        findstr /r /c:"^!" /c:"Fatal" /c:"Error:" /c:"Undefined control sequence" main.log
     ) else (
         echo [ERROR] Pass 1 failed before main.log could be created.
     )
@@ -50,7 +50,7 @@ if %ERRORLEVEL% neq 0 (
     echo.
     if exist main.log (
         echo [ERROR] Pass 2 failed. Errors from "%CD%\main.log":
-        findstr /r /c:"^!" /c:"Fatal" main.log
+        findstr /r /c:"^!" /c:"Fatal" /c:"Error:" /c:"Undefined control sequence" main.log
     ) else (
         echo [ERROR] Pass 2 failed before main.log could be created.
     )

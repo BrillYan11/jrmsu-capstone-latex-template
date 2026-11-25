@@ -19,11 +19,11 @@ if (-not (Get-Command xelatex -ErrorAction SilentlyContinue)) {
 }
 
 $extraArgs = @()
-$verOut = & xelatex --version 2>&1
+$verOut = & xelatex --version
 if ($LASTEXITCODE -ne 0) {
     Write-Host "[WARN] xelatex failed to start (mixed MiKTeX DLLs). Updating MiKTeX packages..." -ForegroundColor Yellow
     & miktex packages update
-    $verOut = & xelatex --version 2>&1
+    $verOut = & xelatex --version
 }
 if (($verOut | Select-Object -First 1) -match "MiKTeX") {
     $extraArgs += "-enable-installer"
@@ -32,7 +32,7 @@ if (($verOut | Select-Object -First 1) -match "MiKTeX") {
 function Show-LogErrors([string]$pass) {
     $logPath = Join-Path $PSScriptRoot "main.log"
     if (Test-Path $logPath) {
-        Select-String -Path $logPath -Pattern '^!|Fatal' | ForEach-Object { Write-Host $_.Line -ForegroundColor Red }
+        Select-String -Path $logPath -Pattern '^!|Fatal|Error:|Undefined control sequence' | ForEach-Object { Write-Host $_.Line -ForegroundColor Red }
         Write-Error "$pass failed. Full log: $logPath"
     } else {
         Write-Error "$pass failed before main.log could be created."
